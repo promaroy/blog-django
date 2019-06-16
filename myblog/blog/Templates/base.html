@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .box{
+    background-color:white;
+    border-radius:3%;
+    color:black;
+    box-shadow:10px 10px 10px;
+    padding-left:10%;
+    }
+    .header{
+      background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+      text-align: center;
+      padding-top: 4%;
+      font-size: 40px;
+      color:white;
+    }
+    </style></head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-light fixed-top">
+    <li class="navbar-brand">Blogger's Land</li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <!-- Navbar links -->
+ <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Disabled</a>
+    </li>
+  </ul></div>
+</nav>
+<div class="header">Blogger's Land</div>
+<br><br><br>
+
+  {%csrf_token%}
+  <div class="container">
+  <div class="row"><div class="col-sm-1"></div><div class="col-sm-5">
+  {% for post in allposts %}
+  <div class="box"><p style='font-size:28px'><b>{{post.title}}</b></p>
+  <p>-<i>by</i><b style='font-size:20px'> {{post.author}}</b></p>
+  <p style='font-size:12px'>{{post.created_on}}</p>
+  <p style='font-size:14px'>{{post.content|slice:":10" }}</p>
+<a href="{% url 'postdetail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a></div><br><br>
+  {% endfor %}</div></div></div>
+  </body>
+  </html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+  <style>
+  .box{
+    box-shadow: 8px 8px 8px grey;
+    border-radius: 2%;
+    border-left: 2px green;
+
+  }
+  .container{
+    padding-top: 5%;
+  }
+  .button{
+    background-color: green;
+    color:white;
+    box-sizing: border-box;
+
+  }
+  .button:hover{
+    background-color: black;
+
+  }
+ </style></head>
+<body>
+  {% csrf_token %}
+  <div class="container"><div class="box"><h6>{{object.title}}</h6><br>
+    <p style='font-size:14px'>{{object.author}}|{{object.updated_on}}</p>
+  <p style='font-size:16px'>{{object.content}}</p></div></div>
+  <div class="button"><a href="{% url 'postview'%}">Back>></a></div>
+  </body>
+  </html>

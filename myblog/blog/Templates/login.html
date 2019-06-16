@@ -1,0 +1,18 @@
+<html>
+<body>
+
+
+
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+    <label for="id_username" >User Name</label>
+<input type="text" name="username"  placeholder="User Name">
+<label for="id_password">Password</label>
+<input type="password" name="password"  placeholder="Password" required>
+
+    <button type="submit">Login</button>
+  </form></body></html>

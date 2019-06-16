@@ -1,0 +1,14 @@
+<html>
+<body>
+
+  <form method='POST'>
+    {%csrf_token%}
+    {%if user.is_authenticated%}
+      {{user.username}}
+      {% for field in form %}
+      <p>{{field.label_tag}}</p>
+     <p>{{field}}</p>
+     {%endfor%}{%endif%}
+<input type='submit' value='add blog'></form>
+</body>
+</html>

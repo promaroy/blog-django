@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  </head>
+  <body>
+    <form method="post">
+
+      {% csrf_token %}
+     <p>
+     {% for field in form.visible_fields %}
+
+         {{ field.label_tag }}
+         {{field}} {{field.help_text}}
+
+
+
+
+     {% endfor %}
+   </p>
+     <center><input type="submit" value="sign up"></center>
+</form>
+</body>
+</html>
