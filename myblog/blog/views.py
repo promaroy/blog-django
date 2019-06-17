@@ -20,11 +20,13 @@ class PostDetail(generic.DetailView):
 
 @login_required(login_url='login')
 def writepost(request):
-    instance = get_object_or_404(Blog, id=response_id)
-    form = writeblog(request.POST or None, instance=instance)
-    if form.is_valid() and instance.author.pk==request.user.pk:
-        form.save()
-        return redirect('postview')
+    if request.method == "POST":
+        form = ResponseForm(request.POST)
+        if form.is_valid() and request.user.is_authenticated:
+            form.save(user_id=request.user.pk)
+            return redirect('base')
+    else:
+        form = ResponseForm()
     return render(request, 'writeup.html', {'form': form})
 
 def signup(request):
