@@ -21,12 +21,12 @@ class PostDetail(generic.DetailView):
 @login_required(login_url='login')
 def writepost(request):
     if request.method == "POST":
-        form = ResponseForm(request.POST)
+        form = writeblog(request.POST)
         if form.is_valid() and request.user.is_authenticated:
             form.save(user_id=request.user.pk)
             return redirect('base')
     else:
-        form = ResponseForm()
+        form = writeblog()
     return render(request, 'writeup.html', {'form': form})
 
 def signup(request):
