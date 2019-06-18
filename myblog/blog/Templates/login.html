@@ -1,18 +1,57 @@
 <html>
-<body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <style>
+  .formbox{
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+    border-radius: 3%;
+    padding:10px;
+    color: black;
+    border-top: 2px solid blue;
+    
 
+  }
+  input {
+    border-bottom: 1px solid white;
 
+    border:None;
+  }
+  .container{
+    padding-top: 10%;
+  }
 
-  <h2>Login</h2>
+</style>
+<body >
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="{% url 'postview' %}">Blogger's Land<i class='fas fa-edit' style='font-size:36px;color:red'></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse justify-content-between" id="navbar">
+  </div></nav>
+  <div class="container">
+<div class="row"><div class="col-sm-2"></div><div class="col-sm-6">
+ <div class="formbox">
+  <center><h1>Login</h1></center>
   <form method="post">
     {% csrf_token %}
     {% if message %}
     <h2>{{message}}</h2>
     {% endif %}
-    <label for="id_username" >User Name</label>
-<input type="text" name="username"  placeholder="User Name">
-<label for="id_password">Password</label>
-<input type="password" name="password"  placeholder="Password" required>
+    <label for="id_username" class="mb-2 mr-sm-2"  >User Name</label>
+<input type="text" name="username" class="form-control mb-2 mr-sm-2"  placeholder="User Name" required><br><br>
+<label for="id_password" class="mb-2 mr-sm-2">Password</label>
+<input type="password" class="form-control mb-2 mr-sm-2" name="password"  placeholder="Password" required><br>
 
-    <button type="submit">Login</button>
-  </form></body></html>
+    <center><input type="submit" class="rounded btn-primary btn-lg" value="Login"></center><br>
+    <center>Not yet a member? <a href="{% url 'signup' %}" class="rounded btn-primary btn-lg">Register</a></center>
+  </form></div></div></div></div></body></html>

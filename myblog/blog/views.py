@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.views import generic
-from .forms import writeblog
+from .forms import *
 from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -24,7 +24,7 @@ def writepost(request):
         form = writeblog(request.POST)
         if form.is_valid() and request.user.is_authenticated:
             form.save(user_id=request.user.pk)
-            return redirect('base')
+            return redirect('postview')
     else:
         form = writeblog()
     return render(request, 'writeup.html', {'form': form})

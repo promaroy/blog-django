@@ -1,8 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+ <style>
+ .formbox{
+   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+   border-radius: 3%;
+   padding:20px;
+   color: black;
+   border-top: 2px solid blue;
+ }
+ input {
+   border-bottom: 1px solid white;
+
+   border:None;
+ }
+ .container{
+   padding-top: 10%;
+ }
+ </style>
   </head>
   <body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <a class="navbar-brand" href="{% url 'postview' %}">Blogger's Land<i class='fas fa-edit' style='font-size:36px;color:red'></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbar">
+    </div></nav><br>
+    <div class="container">
+  <div class="row"><div class="col-sm-2"></div><div class="col-sm-5">
+   <div class="formbox">
+     <center><h1>Register</h1></center><br>
     <form method="post">
 
       {% csrf_token %}
@@ -10,14 +49,15 @@
      {% for field in form.visible_fields %}
 
          {{ field.label_tag }}
-         {{field}} {{field.help_text}}
+         {{field}}<br>
 
 
 
 
      {% endfor %}
    </p>
-     <center><input type="submit" value="sign up"></center>
-</form>
+     <center><input type="submit" class="rounded btn-primary btn-lg" value="sign up"></center><br>
+     <center>Already a member? <a href="{% url 'login_view' %}" class="rounded btn-primary btn-lg">Login</a></center>
+</form></div></div></div>
 </body>
 </html>
