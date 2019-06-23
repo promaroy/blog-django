@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="header"><div class="headercontent"><h1><strong>Bloggers' Land</strong></h1>
+<a href="#footer" class="btn btn-primary btn-sm" style="float:left">Contact</a>
+<form class="form-inline" method="GET" action={% url 'blogbyauthor' %} style="float:right;">
+      {% csrf_token %}
+      <input class="form-control text-dark" type="search" aria-label="Search" name="author" placeholder="author..." required>
+      <button class="btn btn-outline-warning my-sm-0 ml-1" type="submit">Search</button>
+</form></div></div>
+
+  <div class="container">
+  <div class="row"><div class="col-sm-1"></div><div class="col-sm-5">
+  {% for post in posts %}
+  <div class="boxlist"><p style='font-size:26px; color:blue'><b>{{post.title}}</b></p>
+  <p>-<i>by</i><b style='font-size:16px'> {{post.author}}</b></p>
+  <p style='font-size:12px'>{{post.created_on}}</p>
+  <p style='font-size:14px'>{{post.content|slice:":10" }}</p>
+<a href="{% url 'postdetail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a></div><br><br>
+  {% endfor %}</div><div class="col-sm-3"></div><div class="col-sm-3"><div class="rules"><ul><li>
+  Viewers can read any blog without logging in or registering</li><hr><li>Viewers need to register or login to write a blog</li><hr><li>
+  Viewers are free to contact me through any of the contact details provided</li></ul></div></div></div></div>
+  {% endblock %}

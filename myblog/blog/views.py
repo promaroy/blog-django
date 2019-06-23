@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect,render,get_object_or_404,reverse
 # Create your views here.
 def postview(request):
-    allposts=Post.objects.all()
-    return render(request,'base.html',{'allposts':allposts})
+    posts=Post.objects.all()
+    return render(request,'index.html',{'posts':posts})
 
 
 
@@ -27,7 +27,18 @@ def writepost(request):
             return redirect('postview')
     else:
         form = writeblog()
-    return render(request, 'writeup.html', {'form': form})
+    return render(request, 'writeup.html',{'form':form})
+
+
+def blogbyauthor(request):
+    query=request.GET['author']
+    author= get_object_or_404(User, username=query)#this is needed when we apply search filter to foreign key
+    posts = Post.objects.filter(author=author.id).order_by('-created_on')
+    #paginator = Paginator(responses, 10) # Show 10 responses per page
+    #page = request.GET.get('page')
+    #posts = paginator.get_page(page)
+    return render(request, 'index.html', {'posts': posts})
+
 
 def signup(request):
     if request.method == 'POST':
