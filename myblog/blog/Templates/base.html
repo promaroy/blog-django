@@ -14,7 +14,7 @@
 
     </head>
 <body>
-  <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark fixed-top">
     <a class="navbar-brand" href="{% url 'postview' %}">Blogger's Land<i class='fas fa-edit' style='font-size:28px;color:red'></i></li>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
    <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,17 @@
        <a class="nav-item nav-link" href="{%url 'logout_view' %}" ><strong>Logout</strong> <i class='fas fa-sign-out-alt' style='font-size:28px'></i></a></div>
        {% else %}
      <div class="navbar-nav">
-       <a class="nav-item nav-link" href="{% url 'login_view' %}"><strong>Login</strong> <i class='fas fa-sign-in-alt' style='font-size:28px'></i></a>
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+   Login
+ </button>-->
+       <a class="nav-item nav-link" href="{% url 'login_view' %}"><strong>Login</strong> <i class='fas fa-sign-in-alt' style='font-size:28px'></i></a>-->
        <a class="nav-item nav-link" href="{% url 'signup' %}"><strong>Register</strong><i class='fa fa-user-plus' style='font-size:28px'></i></a>
      </div>
      {% endif %}</div></nav><br>
+
+       <!-- Modal footer -->
+
+
   {% block content %}
   {% endblock %}
 

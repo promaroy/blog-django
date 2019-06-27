@@ -1,13 +1,13 @@
 
 .boxlist{
-background-color:white;
-border-left: 6px solid green;
-border-radius:2%;
+background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+z-index: 4;
 color:black;
-box-shadow:8px 8px 8px grey;
+
 padding-left:8%;
 }.header{
-
+   z-index: -1000;
     background-attachment: fixed;
     height: 70vh;
     width:100%;
@@ -21,7 +21,7 @@ padding-left:8%;
   bottom:27%;
   top:0%;
   background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.4); /* Black background with 0.5 opacity */
+  background: rgba(0, 0, 0, 0.6); /* Black background with 0.5 opacity */
   color: #f1f1f1;
   width: 100%;
   text-align: center;
@@ -43,7 +43,7 @@ padding-left:8%;
   font-size: 28px;
 }
 .rules{
-  
+
   text-align:center;
   font-size: 14px;
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
@@ -54,15 +54,15 @@ padding-left:8%;
 }
 
 .navbar{
-  color:black !important;
-  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%) !important;
+  color:white !important;
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 }
 
 .nav-item:hover{
-  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  background-color: white;
   border-radius: 7%;
   box-shadow: 4px 4px 4px grey;
-  color:white !important;
+  color:black !important;
 }
 .navbar-brand{
 
@@ -73,6 +73,7 @@ padding-left:8%;
   padding:10px;
   color: black;
   border-top: 2px solid blue;
+  z-index: 4px;
 
 
 }
@@ -88,4 +89,11 @@ input {
   box-shadow: 8px 8px 8px grey;
   border-radius: 2%;
   border-left: 2px green;
+}
+.comment{
+  width:100%;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  padding-left: 5px;
+  font-size: 12px;
+  border-radius: 2%;
 }

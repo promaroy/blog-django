@@ -9,4 +9,16 @@
     <p style='font-size:14px'>{{object.author}}|{{object.updated_on}}</p>
   <p style='font-size:16px'>{{object.content}}</p></div>
   <center><a href="{% url 'postview' %}" class="rounded btn-primary btn-lg">Back>></a></center></div></div>
+
+  <hr>
+{% for comment in post.comments.all %}
+    <div class="comment">
+        <div class="date"><strong>{{comment.author2}}</strong> | {{ comment.created_date }}</div>
+
+        <p>---{{ comment.text }}</p>
+    </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+
  {% endblock %}

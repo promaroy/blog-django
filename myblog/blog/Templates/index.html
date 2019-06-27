@@ -10,15 +10,23 @@
       <button class="btn btn-outline-warning my-sm-0 ml-1" type="submit">Search</button>
 </form></div></div>
 
-  <div class="container">
-  <div class="row"><div class="col-sm-1"></div><div class="col-sm-5">
+  <div class="container-fluid"><br>
+  <div class="row"><div class="col-sm-1"></div><div class="col-sm-8"><div class="boxlist">
   {% for post in posts %}
-  <div class="boxlist"><p style='font-size:26px; color:blue'><b>{{post.title}}</b></p>
+  <p style='font-size:26px; color:blue'><b>{{post.title}}</b></p>
   <p>-<i>by</i><b style='font-size:16px'> {{post.author}}</b></p>
   <p style='font-size:12px'>{{post.created_on}}</p>
-  <p style='font-size:14px'>{{post.content|slice:":10" }}</p>
-<a href="{% url 'postdetail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a></div><br><br>
-  {% endfor %}</div><div class="col-sm-3"></div><div class="col-sm-3"><div class="rules"><ul><li>
+  <p style='font-size:14px'>{{post.content|slice:":15" }}</p>
+<a href="{% url 'postdetail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a><hr>
+  {% endfor %}</div></div><div class="col-sm-1"></div><div class="col-sm-2">
+
+    <div class="rules"><ul><li>
   Viewers can read any blog without logging in or registering</li><hr><li>Viewers need to register or login to write a blog</li><hr><li>
-  Viewers are free to contact me through any of the contact details provided</li></ul></div></div></div></div>
+  Viewers are free to contact me through any of the contact details provided</li></ul></div></div></div>
+
+
+
+
+</div>
+
   {% endblock %}

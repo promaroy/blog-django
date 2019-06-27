@@ -15,3 +15,10 @@ class writeblog(ModelForm):
         if commit:
             form.save()
             return form
+
+
+#class CommentForm(ModelForm):
+
+    #class Meta:
+        #model = Comment
+        #fields = ('author', 'text',)
