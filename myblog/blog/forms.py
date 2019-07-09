@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class writeblog(ModelForm):
     class Meta:
         model = Post
-        fields = ('title','content','slug')
+        fields = ('title','content')
 
 
     def save(self, user_id ,commit=True,):
@@ -15,10 +15,3 @@ class writeblog(ModelForm):
         if commit:
             form.save()
             return form
-
-
-#class CommentForm(ModelForm):
-
-    #class Meta:
-        #model = Comment
-        #fields = ('author', 'text',)

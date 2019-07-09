@@ -17,7 +17,7 @@
   <p>-<i>by</i><b style='font-size:16px'> {{post.author}}</b></p>
   <p style='font-size:12px'>{{post.created_on}}</p>
   <p style='font-size:14px'>{{post.content|slice:":15" }}</p>
-<a href="{% url 'postdetail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a><hr>
+<a href="{% url 'postdetail' post.id  %}" class="btn btn-primary">Read More &rarr;</a><hr>
   {% endfor %}</div></div><div class="col-sm-1"></div><div class="col-sm-2">
 
     <div class="rules"><ul><li>

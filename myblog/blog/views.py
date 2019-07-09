@@ -14,9 +14,18 @@ def postview(request):
 
 
 
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = 'postdet.html'
+#class PostDetail(generic.DetailView):
+    #model = Post
+    #template_name = 'postdet.html'
+
+def PostDetail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    #response.increase()
+    #comments= Comment.objects.filter(post=post).order_by('-created_date')
+
+
+
+    return render(request, 'postdet.html', {'post': post})
 
 @login_required(login_url='login')
 def writepost(request):

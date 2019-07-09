@@ -5,20 +5,11 @@
 
   {% csrf_token %}
   <div class="container"><div class="row"><div class="col-sm-2"></div>
-  <div class="col-sm-6"><div class="box"><h6>{{object.title}}</h6><br>
-    <p style='font-size:14px'>{{object.author}}|{{object.updated_on}}</p>
-  <p style='font-size:16px'>{{object.content}}</p></div>
+  <div class="col-sm-6"><div class="box"><h6>{{post.title}}</h6><br>
+    <p style='font-size:14px'>{{post.author}}|{{post.updated_on}}</p>
+  <p style='font-size:16px'>{{post.content}}</p></div>
   <center><a href="{% url 'postview' %}" class="rounded btn-primary btn-lg">Back>></a></center></div></div>
 
-  <hr>
-{% for comment in post.comments.all %}
-    <div class="comment">
-        <div class="date"><strong>{{comment.author2}}</strong> | {{ comment.created_date }}</div>
 
-        <p>---{{ comment.text }}</p>
-    </div>
-{% empty %}
-    <p>No comments here yet :(</p>
-{% endfor %}
 
  {% endblock %}
