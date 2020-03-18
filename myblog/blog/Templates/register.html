@@ -8,20 +8,26 @@
    <div class="formbox">
      <center><h1>Register</h1></center><br>
     <form method="post">
-
       {% csrf_token %}
-     <p>
+
      {% for field in form.visible_fields %}
 
-         {{ field.label_tag }}
-         {{field}}<br>
+         {{ field.label_tag }} {{field}}
+      <br><br>
 
 
 
 
      {% endfor %}
-   </p>
+
      <center><input type="submit" class="rounded btn-primary btn-lg" value="sign up"></center><br>
      <center>Already a member? <a href="{% url 'login_view' %}" class="rounded btn-primary btn-lg">Login</a></center>
-</form></div></div></div></div>
+</form>
+<!--<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>-->
+</div></div></div></div>
+
 {% endblock %}

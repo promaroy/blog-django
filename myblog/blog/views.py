@@ -49,6 +49,20 @@ def blogbyauthor(request):
     return render(request, 'index.html', {'posts': posts})
 
 
+#def signup(request):
+    #if request.method == 'POST':
+    #    form = UserCreationForm(request.POST)
+    #    if form.is_valid():
+    #        form.save()
+    #        username = form.cleaned_data.get('username')
+    #        raw_password = form.cleaned_data.get('password')
+    #        user = authenticate(username=username, password=raw_password)
+    #        login(request, user)
+    #        return redirect('postview')
+    #else:
+    #    form = UserCreationForm()
+    #return render(request, 'register.html', {'form': form})
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -62,8 +76,6 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
-
-
 
 def login_view(request):
     _message = False

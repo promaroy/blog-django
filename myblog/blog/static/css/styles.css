@@ -1,28 +1,35 @@
+.body{
+  height: 100%;
 
+}
 .boxlist{
-background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+color: white;
 
 z-index: 4;
-color:black;
+
 
 padding-left:8%;
 }.header{
    z-index: -1000;
-    background-attachment: fixed;
-    height: 70vh;
+    /*background-attachment: fixed;*/
+    height: 100vh;
     width:100%;
-    background-image: url('../images/blog.jpg');
-    background-repeat: repeat-y;
+    background-image: url('../images/blog-background.png');
+    background-repeat: repeat-y!important;
 
     background-position: center ;
     background-size: cover;}
+    hr{
+      background-color: white;
+    }
 .headercontent{
   position: absolute;
-  bottom:27%;
+  bottom:0%;
   top:0%;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.6); /* Black background with 0.5 opacity */
+  /*background: rgb(0, 0, 0); /* Fallback color */
+  /*background: rgba(0, 0, 0, 0.6); /* Black background with 0.5 opacity */
   color: #f1f1f1;
+  height: 100%;
   width: 100%;
   text-align: center;
   padding-right: 3%;
@@ -56,7 +63,7 @@ padding-left:8%;
 
 .navbar{
   color:white !important;
-  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  background-color: black !important;
 }
 
 .nav-item:hover{
@@ -69,13 +76,13 @@ padding-left:8%;
 
 }
 .fieldarea{
-  border:2px solid black;
+  border-radius: 8px;
 }
 .formbox{
   border: 1px solid black;
   border-radius: 3%;
   padding:10px;
-  color: black;
+  color: white;
   border-top: 4px solid blue;
   z-index: 1000;
 

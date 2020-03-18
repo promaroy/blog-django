@@ -1,15 +1,13 @@
  {% extends 'base.html' %}
  {% load static %}
  {% block content %}
-
-
   {% csrf_token %}
   <div class="container"><div class="row"><div class="col-sm-2"></div>
-  <div class="col-sm-6"><div class="box"><h6>{{post.title}}</h6><br>
-    <p style='font-size:14px'>{{post.author}}|{{post.updated_on}}</p>
+  <div class="col-sm-8"><div class="box"><h4>{{post.title}}</h4><br>
+    <p style='font-size:16px'>{{post.author}} | {{post.updated_on}}</p>
   <p style='font-size:16px'>{{post.content}}</p></div>
   <center><a href="{% url 'postview' %}" class="rounded btn-primary btn-lg">Back>></a></center></div></div>
-
+<br><br>
 
 
  {% endblock %}
